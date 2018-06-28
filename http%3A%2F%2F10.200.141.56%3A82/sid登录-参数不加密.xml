@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="sid登录-参数不加�?" path="/channel/channel_sys_user/getToken" id="d8f4c57e-c047-4036-bc81-5ccda2aa27f2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="d8f4c57e-c047-4036-bc81-5ccda2aa27f2fileName">sid登录-参数不加�?</con:setting>
+  </con:settings>
+  <con:parameters/>
+  <con:method name="Method 1" id="9df147d2-9579-4a45-8f3a-bd333e37fc57" method="POST">
+    <con:settings/>
+    <con:parameters/>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType xsi:nil="true"/>
+      <con:status>0</con:status>
+      <con:params/>
+      <con:element>data</con:element>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:element xmlns:get="http://10.200.141.56/channel/channel_sys_user/getToken">get:Response</con:element>
+    </con:representation>
+    <con:representation type="FAULT">
+      <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+      <con:status>400</con:status>
+      <con:params/>
+      <con:element xmlns:get="http://10.200.141.56/channel/channel_sys_user/getToken">get:Fault</con:element>
+    </con:representation>
+    <con:request name="Request 1" id="aca3a2fd-331f-429f-af34-1930b553e845" mediaType="application/json" postQueryString="false">
+      <con:settings/>
+      <con:endpoint>http://10.200.141.56:82</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="10a0430f-4401-4769-946f-127adc13fa24">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="af64eff7-6edf-4d13-8310-5aa4bf3939af">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:request>
+    <con:environmentSpec>
+      <con:entry environmentId="10a0430f-4401-4769-946f-127adc13fa24">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="af64eff7-6edf-4d13-8310-5aa4bf3939af">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
+  </con:method>
+  <con:environmentSpec>
+    <con:entry environmentId="10a0430f-4401-4769-946f-127adc13fa24">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="af64eff7-6edf-4d13-8310-5aa4bf3939af">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:resource>

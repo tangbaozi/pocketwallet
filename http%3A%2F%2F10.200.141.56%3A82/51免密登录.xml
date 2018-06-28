@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="51免密登录" path="/channel/channel_sys_user/getToken51" id="bbb474cc-c3f5-4612-b8d1-e82e389100b9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:description>51免密登录-渠道按规则加�?</con:description>
+  <con:settings>
+    <con:setting id="bbb474cc-c3f5-4612-b8d1-e82e389100b9fileName">51免密登录</con:setting>
+  </con:settings>
+  <con:parameters/>
+  <con:method name="login" id="cba2136a-7853-4808-9da3-d9f3e1af2b29" method="POST">
+    <con:settings/>
+    <con:parameters/>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+    </con:representation>
+    <con:representation type="FAULT">
+      <con:mediaType>text/html; charset=utf-8</con:mediaType>
+      <con:status>403</con:status>
+      <con:params/>
+      <con:element>h2</con:element>
+    </con:representation>
+    <con:representation type="FAULT">
+      <con:mediaType>text/html; charset=utf-8</con:mediaType>
+      <con:status>403</con:status>
+      <con:params/>
+      <con:element>h2</con:element>
+    </con:representation>
+    <con:representation type="FAULT">
+      <con:mediaType>text/html; charset=utf-8</con:mediaType>
+      <con:status>403</con:status>
+      <con:params/>
+      <con:element>h2</con:element>
+    </con:representation>
+    <con:representation type="FAULT">
+      <con:mediaType>text/html; charset=utf-8</con:mediaType>
+      <con:status>403</con:status>
+      <con:params/>
+      <con:element>h2</con:element>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:element xmlns:get="http://10.200.141.56/channel/channel_sys_user/getToken51">get:Response</con:element>
+    </con:representation>
+    <con:representation type="FAULT">
+      <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+      <con:status>500 400</con:status>
+      <con:params/>
+      <con:element>Fault</con:element>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType xsi:nil="true"/>
+      <con:status>0</con:status>
+      <con:params/>
+      <con:element>data</con:element>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/x-www-form-urlencoded</con:mediaType>
+      <con:params/>
+    </con:representation>
+    <con:representation type="FAULT">
+      <con:mediaType>text/html</con:mediaType>
+      <con:status>502</con:status>
+      <con:params/>
+      <con:element>html</con:element>
+    </con:representation>
+    <con:request name="Request 1" id="e1e0ac5b-1406-4acf-bd75-a598a1e802ce" mediaType="application/json" postQueryString="false">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>http://10.200.141.56:82</con:endpoint>
+      <con:request>{
+      "timestamp":"1528708239271",
+      "mobilePhone":"15757119080",
+      "userSource":"KcP/h9EoGdgvQVWOvLtQValG5O0wEx3KcDowM1BXYp9Klz+h6CXEkG4vVTDVAgg3rUc3bQW88XKHw6Qzle2LZ0fgj5hKXCm4oyNUvoLh5cTwFKL7R8MNRC5HtcYbK5arZCRVmjGnAuHdxVVEncv0u01dX55CAle5K0Kjrms/Lw0="
+}</con:request>
+      <con:originalUri>http://10.200.141.56/channel/channel_sys_user/getToken51</con:originalUri>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="10a0430f-4401-4769-946f-127adc13fa24">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="af64eff7-6edf-4d13-8310-5aa4bf3939af">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:request>
+    <con:environmentSpec>
+      <con:entry environmentId="10a0430f-4401-4769-946f-127adc13fa24">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="af64eff7-6edf-4d13-8310-5aa4bf3939af">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
+  </con:method>
+  <con:environmentSpec>
+    <con:entry environmentId="10a0430f-4401-4769-946f-127adc13fa24">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="af64eff7-6edf-4d13-8310-5aa4bf3939af">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:resource>

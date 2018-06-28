@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="c1f5ae24-c718-4f73-b416-226570d84651" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="51免密登录-渠道按规则加�?" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="c1f5ae24-c718-4f73-b416-226570d84651fileName">51免密登录-渠道按规则加�?</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="groovy" name="getdata" id="46c5f00a-c534-419d-b813-d14e8bfda435">
+    <con:settings/>
+    <con:config>
+      <script>import fengdai.com.MD5Util
+import fengdai.com.RSAUtil
+import org.apache.commons.net.util.Base64;
+
+//import groovy.json
+
+log.info("51登录加密数据")
+
+//def userphone = context.expand( '${#TestCase#userphone}' )
+def userphone="13113101242";
+def nowtime=new Date();
+def date= nowtime.time
+def   log51source = "51@gongjijing32!1_" +"${date}"+ "_" + userphone;
+log.info(log51source)
+
+def  log51encryp = RSAUtil.encryptByPublicKey(log51source, RSAUtil.PUBLIC_KEY_TR);
+		log51encryp = log51encryp.replaceAll("[\r\n]", "");
+
+	def  sb51="""{
+"timestamp":"$date",
+"mobilePhone":"$userphone",
+"userSource":"$log51encryp"
+}
+"""</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="51Login" id="4c9eb729-1bb1-4e1c-810d-67510c4dca00">
+    <con:settings/>
+    <con:config service="http://10.200.141.56:82" resourcePath="/channel/channel_sys_user/getToken51" methodName="login" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="51Login" id="e1e0ac5b-1406-4acf-bd75-a598a1e802ce" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="cookie" value="ucenter_version=v2" xmlns="http://eviware.com/soapui/config"/></con:setting>
+        </con:settings>
+        <con:encoding/>
+        <con:endpoint>http://10.200.141.56:82</con:endpoint>
+        <con:request>${getdata#result}</con:request>
+        <con:originalUri>http://10.200.141.56/channel/channel_sys_user/getToken51</con:originalUri>
+        <con:assertion type="GroovyScriptAssertion" id="036af59f-4fa4-479e-b3c4-50345d7a6884" name="Script Assertion">
+          <con:configuration>
+            <scriptText>def response = context.expand( '${51Login#Response#$[\'status\']}' )
+assert response=="success"</scriptText>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+        <con:environmentSpec>
+          <con:entry environmentId="10a0430f-4401-4769-946f-127adc13fa24">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="af64eff7-6edf-4d13-8310-5aa4bf3939af">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="gettoken" id="fdbba954-c5d0-47e0-a8a4-7b2fe1a76d9b">
+    <con:settings/>
+    <con:config>
+      <script>def token=testRunner.testCase.getTestStepByName("51Login").testRequest.response.responseHeaders["Set-Cookie"]
+def cookie=token.get(0).split(";")[0]
+testRunner.testCase.setPropertyValue("token",cookie)</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="优惠券发�?" id="a0809a05-1880-49fe-ba5d-ff69d9d4ac9a">
+    <con:settings/>
+    <con:config service="http://10.200.141.56:82" resourcePath="/channel/activityweb/addCardCoupons" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="优惠券发�?" id="6cb01d44-b1fe-4fa9-b6a5-4c2a6083a0ed" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="cookie" value="${#TestCase#token}" xmlns="http://eviware.com/soapui/config"/></con:setting>
+        </con:settings>
+        <con:endpoint>http://10.200.141.56:82</con:endpoint>
+        <con:request>{
+	"channelCode":"QD000178",
+	"cardCouponsCode": "KQ00207" ,
+	"cellphone" :"${#TestCase#userphone}" ,
+	"productCode":""
+}</con:request>
+        <con:originalUri>http://10.200.141.56/channel/activityweb/addCardCoupons</con:originalUri>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+        <con:environmentSpec>
+          <con:entry environmentId="10a0430f-4401-4769-946f-127adc13fa24">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="af64eff7-6edf-4d13-8310-5aa4bf3939af">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties>
+    <con:property>
+      <con:name>userphone</con:name>
+      <con:value>13113101242</con:value>
+    </con:property>
+    <con:property>
+      <con:name>token</con:name>
+      <con:value>token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI0MWFhNjcwNzE0YzI0ZjJmYjMzOTEyYTg0M2FmMmQyNCIsImF1ZCI6WyJ1Y2EzZWUwZTEzZmZmYzZjN2QiLCJ1Y2VudGVyIl0sImlfdiI6MTUyODM3MzgwNjAwMCwiaWRlbnRfaWQiOjIyODM5NjMwLCJuYmYiOjE1Mjk2NDgzOTksInBfdiI6MTUyOTA0MTkyMDAwMCwiaXNzIjoidWNlbnRlciIsImV4cCI6MTUyOTczNDc5OSwidHlwZSI6MSwiaWF0IjoxNTI5NjQ4Mzk5LCJqdGkiOiIyMjMyNTAwNSJ9.c-ceJJr50pHlhlxrkHCRvTgHOOpqdXAxqJOHSfKEvM75TSruHhcQhZXkoSOMBg97CnwxVhuoeKOrn-KQbCbExpNRFBZO2cdqKzdytNzKROHpF8pVgGeOKCnxEb0RR9IXcsW8-1OREWvjiEl3WEoQ0O0549epRyrz6WZT8Vh7_7Y</con:value>
+    </con:property>
+  </con:properties>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>46c5f00a-c534-419d-b813-d14e8bfda435</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>4c9eb729-1bb1-4e1c-810d-67510c4dca00</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>fdbba954-c5d0-47e0-a8a4-7b2fe1a76d9b</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:environmentSpec>
+    <con:entry environmentId="10a0430f-4401-4769-946f-127adc13fa24">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="af64eff7-6edf-4d13-8310-5aa4bf3939af">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:testCase>

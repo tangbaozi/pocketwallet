@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="64d52299-9510-44c8-8807-53435becb9e2" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="泰然免密登录-渠道按规则加�?" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="64d52299-9510-44c8-8807-53435becb9e2fileName">泰然免密登录-渠道按规则加�?</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="groovy" name="gatadata" id="eda50286-61f7-4485-8b5d-6b0e81d72a7e">
+    <con:settings/>
+    <con:config>
+      <script>import fengdai.com.MD5Util
+import fengdai.com.RSAUtil
+import org.apache.commons.net.util.Base64;
+
+def nowtime=new Date();
+def date= nowtime.time
+
+def userphone = context.expand( '${#TestCase#phone}' )
+
+
+def logtrsource = "tairan@123!_" + "${date}" + "_" + userphone;
+def logtrencryp = RSAUtil.encryptByPublicKey(logtrsource, RSAUtil.PUBLIC_KEY_TR);
+	  logtrencryp = logtrencryp.replaceAll("[\r\n]", "");
+
+def  data="""{
+"timestamp":"$date",
+"mobilePhone":"$userphone",
+"userSource":"${logtrencryp}"
+}"""</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="Login" id="8970ce8a-4a2a-4397-ba1c-758d6c3f5371">
+    <con:settings/>
+    <con:config service="http://10.200.141.56:82" resourcePath="/channel/channel_sys_user/getTokentr" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="Login" id="aeabe342-4b0a-4c09-b9db-15449fde24cc" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>http://10.200.141.56:82</con:endpoint>
+        <con:request>${gatadata#result}</con:request>
+        <con:originalUri>http://10.200.141.56/channel/channel_sys_user/getTokentr</con:originalUri>
+        <con:assertion type="JsonPath Match" id="bae7dc45-6fa6-4caa-aaf7-a13ed8f48dd7" name="Match content of [status]">
+          <con:configuration>
+            <path>$['status']</path>
+            <content>success</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+        <con:environmentSpec>
+          <con:entry environmentId="10a0430f-4401-4769-946f-127adc13fa24">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="af64eff7-6edf-4d13-8310-5aa4bf3939af">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties>
+    <con:property>
+      <con:name>phone</con:name>
+      <con:value>13113101242</con:value>
+    </con:property>
+  </con:properties>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>eda50286-61f7-4485-8b5d-6b0e81d72a7e</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:environmentSpec>
+    <con:entry environmentId="10a0430f-4401-4769-946f-127adc13fa24">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="af64eff7-6edf-4d13-8310-5aa4bf3939af">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:testCase>

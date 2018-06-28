@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="fc1c4009-52a4-4b8c-9bfe-00e102f2e1a0" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="泰然免密登录-统一加密方式" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="fc1c4009-52a4-4b8c-9bfe-00e102f2e1a0fileName">泰然免密登录-统一加密方式</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="groovy" name="getdata" id="17571299-40b1-4daa-8fff-23b87f4a59a7">
+    <con:settings/>
+    <con:config>
+      <script>import fengdai.com.MD5Util
+import fengdai.com.RSAUtil
+import org.apache.commons.net.util.Base64;
+		 
+		 //trc2EncryptApi
+		 //QD000004 是trc的渠道编号，userSource = channel = QD000004
+def userphone = context.expand( '${#TestCase#phone}' )
+def QD = context.expand( '${#TestCase#QD}' )
+def nowtime=new Date();
+def date= nowtime.time
+
+		 
+		 def  login_trc_source = "{ 'mobilePhone':'"+"${userphone}"+"', 'userSource':'"+"${QD}"+"', 'timestamp':'"+"${date}"+"' }";
+		 def miLogin_ = RSAUtil.encryptByPublicKey( login_trc_source, RSAUtil.PUBLIC_KEY_QD);
+		 def miLogin1line_ = miLogin_.replaceAll("[\r\n]", "");
+		 def  md5codeLogin_ = RSAUtil.MD5Util.getMD5Code(miLogin1line_);
+//		 sblogin_.append("{").append("\r\n")
+//		 .append("    \"channel\": \"").append("QD000004").append("\"").append(",").append("\r\n")
+//		 .append("    \"reqJson\": \"").append(miLogin1line_).append("\"").append(",").append("\r\n")
+//		 .append("    \"reqSign\": \"").append(md5codeLogin_).append("\"").append(",").append("\r\n")
+//		 .append("    \"reqNo\": \"").append("nancy-user-login-trc"+System.currentTimeMillis()).append("\"").append(",").append("\r\n")
+//		 .append("    \"timestamp\": \"").append(System.currentTimeMillis()).append("\"").append("\r\n")
+////		 .append("}");
+
+
+def data="""{
+"channel":"QD000004",
+"reqJson":"${miLogin1line_}",
+"reqSign":"${md5codeLogin_}",
+"reqNo": "nancy-user-login-trc${date}",
+ "timestamp": "${date}"
+}"""</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="Login" id="612e270b-83da-4403-84bd-2fecb5712f0a">
+    <con:settings/>
+    <con:config service="http://10.200.141.56:82" resourcePath="/channel/channel_sys_user/getTokentrc" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="Login" id="9240e7c8-efbe-46b2-8731-b3fc49e3cdbc" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>http://10.200.141.56:82</con:endpoint>
+        <con:request>${getdata#result}</con:request>
+        <con:originalUri>http://10.200.141.56/channel/channel_sys_user/getTokentrc</con:originalUri>
+        <con:assertion type="JsonPath Match" id="84cf0d97-bfe7-42bc-81d3-0a016b428738" name="Match content of [status]">
+          <con:configuration>
+            <path>$['status']</path>
+            <content>success</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+        <con:environmentSpec>
+          <con:entry environmentId="10a0430f-4401-4769-946f-127adc13fa24">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="af64eff7-6edf-4d13-8310-5aa4bf3939af">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties>
+    <con:property>
+      <con:name>phone</con:name>
+      <con:value>13113101242</con:value>
+    </con:property>
+    <con:property>
+      <con:name>QD</con:name>
+      <con:value>QD000004</con:value>
+    </con:property>
+  </con:properties>
+  <con:reportParameters/>
+  <con:environmentSpec>
+    <con:entry environmentId="10a0430f-4401-4769-946f-127adc13fa24">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="af64eff7-6edf-4d13-8310-5aa4bf3939af">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:testCase>

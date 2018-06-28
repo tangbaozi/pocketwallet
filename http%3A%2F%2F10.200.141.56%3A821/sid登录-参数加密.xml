@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="5c22ad28-ac00-4045-adf9-7c64d34111e3" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="sid登录-参数加密" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="5c22ad28-ac00-4045-adf9-7c64d34111e3fileName">sid登录-参数加密</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="groovy" name="getdata" id="21715c39-a872-40c4-b082-7fe336998568">
+    <con:settings/>
+    <con:config>
+      <script>import fengdai.com.MD5Util
+import fengdai.com.RSAUtil
+import org.apache.commons.net.util.Base64;
+
+
+def nowtime=new Date();
+def date= nowtime.time
+
+def userphone = context.expand( '${#TestCase#phone}' )
+def sid = context.expand( '${#TestCase#Sid}' )
+def  Qd = context.expand( '${#TestCase#QD}' )
+
+def sidencloginsource = "{ 'mobilePhone':'"+"${userphone}"+"', 'sId':'"+"${userphone}"+"', 'userSource':'"+"${Qd}"+"' }";
+def  loginsidencrypt = RSAUtil.encryptByPublicKey(sidencloginsource, RSAUtil.PUBLIC_KEY_QD);
+   loginsidencrypt = loginsidencrypt.replaceAll("[\r\n]", "");
+def  sidreqSignCode = MD5Util.getMD5Code(loginsidencrypt);
+
+def data=""" {
+"channel": "${Qd}",
+"reqJson": "${loginsidencrypt}",
+"reqSign": "${sidreqSignCode}",
+"reqNo":"nancy-sid-login-${date}",
+ "timestamp":"${date}"
+ }"""</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="Login" id="e5606a23-c7e5-4c6f-b837-f8b281dab229">
+    <con:settings/>
+    <con:config service="http://10.200.141.56:82" resourcePath="/channel/channel_sys_user/getTokenc" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="Login" id="f8a35201-5663-4948-8074-047c78b6747d" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>http://10.200.141.56:82</con:endpoint>
+        <con:request>${getdata#result}</con:request>
+        <con:originalUri>http://10.200.141.56/channel/channel_sys_user/getTokenc</con:originalUri>
+        <con:assertion type="JsonPath Match" id="d9a1ed51-6e3e-4702-9a37-83195521e8a6" name="Match content of [sid]">
+          <con:configuration>
+            <path>$['sid']</path>
+            <content>13113101242</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+        <con:environmentSpec>
+          <con:entry environmentId="10a0430f-4401-4769-946f-127adc13fa24">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="af64eff7-6edf-4d13-8310-5aa4bf3939af">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties>
+    <con:property>
+      <con:name>phone</con:name>
+      <con:value>13113101242</con:value>
+    </con:property>
+    <con:property>
+      <con:name>Sid</con:name>
+      <con:value>13113101242</con:value>
+    </con:property>
+    <con:property>
+      <con:name>QD</con:name>
+      <con:value>FDPC</con:value>
+    </con:property>
+  </con:properties>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>21715c39-a872-40c4-b082-7fe336998568</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:environmentSpec>
+    <con:entry environmentId="10a0430f-4401-4769-946f-127adc13fa24">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="af64eff7-6edf-4d13-8310-5aa4bf3939af">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:testCase>

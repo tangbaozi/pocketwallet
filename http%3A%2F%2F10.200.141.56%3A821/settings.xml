@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="99e4a07d-1747-4b2d-89d9-e4e3844fc7bd" name="http://10.200.141.56:82" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="99e4a07d-1747-4b2d-89d9-e4e3844fc7bdfileName">http%3A%2F%2F10.200.141.56%3A821</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:runType>SEQUENTIAL</con:runType>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:environmentSpec>
+    <con:entry environmentId="10a0430f-4401-4769-946f-127adc13fa24">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="af64eff7-6edf-4d13-8310-5aa4bf3939af">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:testSuite>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="优惠券发�?" path="/channel/activityweb/addCardCoupons" id="4273ba8a-8e86-4861-ab13-c690f09db47d" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="4273ba8a-8e86-4861-ab13-c690f09db47dfileName">优惠券发�?</con:setting>
+  </con:settings>
+  <con:parameters/>
+  <con:method name="Method 1" id="12b5458d-b215-4d56-b0cb-31feb0024618" method="POST">
+    <con:settings/>
+    <con:parameters/>
+    <con:representation type="FAULT">
+      <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+      <con:status>500 400</con:status>
+      <con:params/>
+      <con:element>Fault</con:element>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>text/plain;charset=UTF-8</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:element>data</con:element>
+    </con:representation>
+    <con:request name="Request 1" id="6cb01d44-b1fe-4fa9-b6a5-4c2a6083a0ed" mediaType="application/json" postQueryString="false">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="cookie" value="token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI0MWFhNjcwNzE0YzI0ZjJmYjMzOTEyYTg0M2FmMmQyNCIsImF1ZCI6WyJ1Y2EzZWUwZTEzZmZmYzZjN2QiLCJ1Y2VudGVyIl0sImlfdiI6MTUyODM3MzgwNjAwMCwiaWRlbnRfaWQiOjIyODM5NjMwLCJuYmYiOjE1Mjk2NDgzOTksInBfdiI6MTUyOTA0MTkyMDAwMCwiaXNzIjoidWNlbnRlciIsImV4cCI6MTUyOTczNDc5OSwidHlwZSI6MSwiaWF0IjoxNTI5NjQ4Mzk5LCJqdGkiOiIyMjMyNTAwNSJ9.c-ceJJr50pHlhlxrkHCRvTgHOOpqdXAxqJOHSfKEvM75TSruHhcQhZXkoSOMBg97CnwxVhuoeKOrn-KQbCbExpNRFBZO2cdqKzdytNzKROHpF8pVgGeOKCnxEb0RR9IXcsW8-1OREWvjiEl3WEoQ0O0549epRyrz6WZT8Vh7_7Y" xmlns="http://eviware.com/soapui/config"/></con:setting>
+      </con:settings>
+      <con:endpoint>http://10.200.141.56:82</con:endpoint>
+      <con:request>{
+	"channelCode":"QD000178",
+	"cardCouponsCode": "KQ00207" ,
+	"cellphone" :"13113101242" ,
+	"productCode":""
+}</con:request>
+      <con:originalUri>http://10.200.141.56/channel/activityweb/addCardCoupons</con:originalUri>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="10a0430f-4401-4769-946f-127adc13fa24">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="af64eff7-6edf-4d13-8310-5aa4bf3939af">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:request>
+    <con:environmentSpec>
+      <con:entry environmentId="10a0430f-4401-4769-946f-127adc13fa24">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="af64eff7-6edf-4d13-8310-5aa4bf3939af">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
+  </con:method>
+  <con:environmentSpec>
+    <con:entry environmentId="10a0430f-4401-4769-946f-127adc13fa24">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="af64eff7-6edf-4d13-8310-5aa4bf3939af">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:resource>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="bd9b1e1c-c8e1-4c64-8352-ca833a3505ed" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="sid登录-参数不加�?" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="bd9b1e1c-c8e1-4c64-8352-ca833a3505edfileName">sid登录-参数不加�?</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="restrequest" name="Login" id="f7f1eb65-0f55-4d00-88cd-22e496b392d2">
+    <con:settings/>
+    <con:config service="http://10.200.141.56:82" resourcePath="/channel/channel_sys_user/getToken" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="Login" id="aca3a2fd-331f-429f-af34-1930b553e845" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>http://10.200.141.56:82</con:endpoint>
+        <con:request>{
+"mobilePhone":"${#TestCase#phone}",
+"sId":"${#TestCase#sid}", 
+"userSource":"${#TestCase#source}"
+}</con:request>
+        <con:originalUri>http://10.200.141.56/channel/channel_sys_user/getToken</con:originalUri>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+        <con:environmentSpec>
+          <con:entry environmentId="10a0430f-4401-4769-946f-127adc13fa24">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="af64eff7-6edf-4d13-8310-5aa4bf3939af">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties>
+    <con:property>
+      <con:name>phone</con:name>
+      <con:value>13113101242</con:value>
+    </con:property>
+    <con:property>
+      <con:name>sid</con:name>
+      <con:value>13113101242</con:value>
+    </con:property>
+    <con:property>
+      <con:name>source</con:name>
+      <con:value>FDPC</con:value>
+    </con:property>
+  </con:properties>
+  <con:reportParameters/>
+  <con:environmentSpec>
+    <con:entry environmentId="10a0430f-4401-4769-946f-127adc13fa24">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="af64eff7-6edf-4d13-8310-5aa4bf3939af">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:testCase>
