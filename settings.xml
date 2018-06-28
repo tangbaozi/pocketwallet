@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <con:soapui-project id="c73e3708-3dbd-4756-9f77-30341ad47d98" created="2.4.0" activeEnvironment="Default environment" name="蜂贷channel" resourceRoot="" updated="2.4.0 2018-06-08T12:50:23Z" encryptionMode="Not encrypted" compositeProjectFormat="1.3" xmlns:con="http://eviware.com/soapui/config">
-  <con:settings/>
+  <con:settings>
+    <con:setting id="c73e3708-3dbd-4756-9f77-30341ad47d98fileName">蜂贷channel</con:setting>
+  </con:settings>
   <con:vcsConfiguration>
     <con:vcsName>Git</con:vcsName>
-    <con:repositoryIdentifier>https://github.com/tangbaozi/pocketwallet.git</con:repositoryIdentifier>
+    <con:repositoryIdentifier>git@github.com:tangbaozi/qa-test-fengdai.git</con:repositoryIdentifier>
   </con:vcsConfiguration>
   <con:savedRecentRuns>1</con:savedRecentRuns>
   <con:requirements/>
