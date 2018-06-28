@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="132bcd99-0592-4d22-b985-75898224e6a0" name="口袋钱包" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="132bcd99-0592-4d22-b985-75898224e6a0fileName">口袋钱包</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:runType>SEQUENTIAL</con:runType>
+  <con:properties>
+    <con:property>
+      <con:name>version</con:name>
+      <con:value>ucenter_version=v2</con:value>
+    </con:property>
+    <con:property>
+      <con:name>token</con:name>
+      <con:value>token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI0MWFhNjcwNzE0YzI0ZjJmYjMzOTEyYTg0M2FmMmQyNCIsImF1ZCI6WyJ1Y2EzZWUwZTEzZmZmYzZjN2QiLCJ1Y2VudGVyIl0sImlfdiI6MTUyODM3MzgwNjAwMCwiaWRlbnRfaWQiOjIyODM5NjMwLCJuYmYiOjE1Mjk0NzQ0NDEsInBfdiI6MTUyOTA0MTkyMDAwMCwiaXNzIjoidWNlbnRlciIsImV4cCI6MTUyOTU2MDg0MSwidHlwZSI6MSwiaWF0IjoxNTI5NDc0NDQxLCJqdGkiOiIyMjI0NTgxMSJ9.LSipV_c-Oztqtwn5WsEDigizIpcKhHhpZU7uupf8wGIwOVFhC9sY_Vwa92pfi9PMrCmcCSimJFOHEVLkAwIkGrW_9tEhBXliHEp1qzJ8geNC3-KIrf3lOtmO2UgDeF3gBt0R4Kmh_UXu7m1srYRQFFK5-1hmhHHk_EnSLA_nli0</con:value>
+    </con:property>
+  </con:properties>
+  <con:reportParameters/>
+</con:testSuite>

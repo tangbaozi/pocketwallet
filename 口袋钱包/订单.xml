@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="ac9b43a0-0209-4222-9e6e-6ce51cf508af" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="订单" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="ac9b43a0-0209-4222-9e6e-6ce51cf508affileName">订单</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="restrequest" name="订单状�??" id="757a9414-43b8-4290-88b8-b9cce3b46813">
+    <con:settings/>
+    <con:config service="https://10.200.141.56" resourcePath="/SystemWeb/sys_dict/order_info_status" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="订单状�??" id="2eccc99a-5a18-4048-8244-96555f4a8996" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="cookie" value="token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI0MWFhNjcwNzE0YzI0ZjJmYjMzOTEyYTg0M2FmMmQyNCIsImF1ZCI6WyJ1Y2EzZWUwZTEzZmZmYzZjN2QiLCJ1Y2VudGVyIl0sImlfdiI6MTUyODM3MzgwNjAwMCwiaWRlbnRfaWQiOjIyODM5NjMwLCJuYmYiOjE1Mjk0NTg1NDIsInBfdiI6MTUyOTA0MTkyMDAwMCwiaXNzIjoidWNlbnRlciIsImV4cCI6MTUyOTU0NDk0MiwidHlwZSI6MSwiaWF0IjoxNTI5NDU4NTQyLCJqdGkiOiIyMjI0NTc5NSJ9.qfvwOlqxpgR5SJ24BCeNgLEVXuZxWBzAtxa6h_i-yf7yqMW4jbIWoE6y9bT0pdE0qKg8C7lzpY44u9W03nE9QxlsSsYhhXexEj_5wHdJ-IeIIEFzLMkEolP2Rr74IqIvixTGGqoZ_2dEPEbQX27t0hQA4fF0hLwQNsv8aHno0PI"/>
+  &lt;con:entry key="cookie" value="ucenter_version=v2"/>
+&lt;/xml-fragment></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://10.200.141.56</con:endpoint>
+        <con:request/>
+        <con:originalUri>https://10.200.141.56/SystemWeb/sys_dict/order_info_status</con:originalUri>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="我的订单" id="f92ff745-dfd2-44a7-8655-486951fea8bf">
+    <con:settings/>
+    <con:config service="https://10.200.141.56" resourcePath="/ShopWeb/order/my_order" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="我的订单" id="4d2a355c-477c-451f-942e-0fe7f1acb799" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="cookie" value="token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI0MWFhNjcwNzE0YzI0ZjJmYjMzOTEyYTg0M2FmMmQyNCIsImF1ZCI6WyJ1Y2EzZWUwZTEzZmZmYzZjN2QiLCJ1Y2VudGVyIl0sImlfdiI6MTUyODM3MzgwNjAwMCwiaWRlbnRfaWQiOjIyODM5NjMwLCJuYmYiOjE1Mjk0NTg1NDIsInBfdiI6MTUyOTA0MTkyMDAwMCwiaXNzIjoidWNlbnRlciIsImV4cCI6MTUyOTU0NDk0MiwidHlwZSI6MSwiaWF0IjoxNTI5NDU4NTQyLCJqdGkiOiIyMjI0NTc5NSJ9.qfvwOlqxpgR5SJ24BCeNgLEVXuZxWBzAtxa6h_i-yf7yqMW4jbIWoE6y9bT0pdE0qKg8C7lzpY44u9W03nE9QxlsSsYhhXexEj_5wHdJ-IeIIEFzLMkEolP2Rr74IqIvixTGGqoZ_2dEPEbQX27t0hQA4fF0hLwQNsv8aHno0PI"/>
+  &lt;con:entry key="cookie" value="ucenter_version=v2"/>
+&lt;/xml-fragment></con:setting>
+        </con:settings>
+        <con:endpoint>https://10.200.141.56</con:endpoint>
+        <con:request/>
+        <con:originalUri>https://10.200.141.56/ShopWeb/order/my_order</con:originalUri>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="timeStamp" value="1529465726110"/>
+          <con:entry key="pageSize" value="5"/>
+          <con:entry key="pageNum" value="1"/>
+        </con:parameters>
+        <con:parameterOrder>
+          <con:entry>timeStamp</con:entry>
+          <con:entry>pageNum</con:entry>
+          <con:entry>pageSize</con:entry>
+        </con:parameterOrder>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

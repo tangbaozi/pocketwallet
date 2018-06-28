@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="我的订单" path="/ShopWeb/order/my_order" id="50ff436d-4a52-4c74-9cbd-cfc05581579b" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="50ff436d-4a52-4c74-9cbd-cfc05581579bfileName">我的订单</con:setting>
+  </con:settings>
+  <con:parameters>
+    <con:parameter required="true">
+      <con:name>timeStamp</con:name>
+      <con:value/>
+      <con:style>QUERY</con:style>
+      <con:default/>
+      <con:description xsi:nil="true"/>
+    </con:parameter>
+    <con:parameter required="true">
+      <con:name>pageNum</con:name>
+      <con:value/>
+      <con:style>QUERY</con:style>
+      <con:default/>
+      <con:description xsi:nil="true"/>
+    </con:parameter>
+    <con:parameter required="true">
+      <con:name>pageSize</con:name>
+      <con:value/>
+      <con:style>QUERY</con:style>
+      <con:default/>
+      <con:description xsi:nil="true"/>
+    </con:parameter>
+  </con:parameters>
+  <con:method name="Method 1" id="ce7db009-9ff0-4f3a-9302-cb9d803d549b" method="GET">
+    <con:settings/>
+    <con:parameters/>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:element xmlns:my="https://10.200.141.56/ShopWeb/order/my_order">my:Response</con:element>
+    </con:representation>
+    <con:representation type="FAULT">
+      <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+      <con:status>500</con:status>
+      <con:params/>
+      <con:element>Fault</con:element>
+    </con:representation>
+    <con:request name="Request 1" id="4d2a355c-477c-451f-942e-0fe7f1acb799" mediaType="application/json">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="cookie" value="token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI0MWFhNjcwNzE0YzI0ZjJmYjMzOTEyYTg0M2FmMmQyNCIsImF1ZCI6WyJ1Y2EzZWUwZTEzZmZmYzZjN2QiLCJ1Y2VudGVyIl0sImlfdiI6MTUyODM3MzgwNjAwMCwiaWRlbnRfaWQiOjIyODM5NjMwLCJuYmYiOjE1Mjk0NTg1NDIsInBfdiI6MTUyOTA0MTkyMDAwMCwiaXNzIjoidWNlbnRlciIsImV4cCI6MTUyOTU0NDk0MiwidHlwZSI6MSwiaWF0IjoxNTI5NDU4NTQyLCJqdGkiOiIyMjI0NTc5NSJ9.qfvwOlqxpgR5SJ24BCeNgLEVXuZxWBzAtxa6h_i-yf7yqMW4jbIWoE6y9bT0pdE0qKg8C7lzpY44u9W03nE9QxlsSsYhhXexEj_5wHdJ-IeIIEFzLMkEolP2Rr74IqIvixTGGqoZ_2dEPEbQX27t0hQA4fF0hLwQNsv8aHno0PI"/>
+  &lt;con:entry key="cookie" value="ucenter_version=v2"/>
+&lt;/xml-fragment></con:setting>
+      </con:settings>
+      <con:endpoint>https://10.200.141.56</con:endpoint>
+      <con:request/>
+      <con:originalUri>https://10.200.141.56/ShopWeb/order/my_order</con:originalUri>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:entry key="timeStamp" value="1529465726110"/>
+        <con:entry key="pageSize" value="5"/>
+        <con:entry key="pageNum" value="1"/>
+      </con:parameters>
+      <con:parameterOrder>
+        <con:entry>timeStamp</con:entry>
+        <con:entry>pageNum</con:entry>
+        <con:entry>pageSize</con:entry>
+      </con:parameterOrder>
+    </con:request>
+  </con:method>
+</con:resource>

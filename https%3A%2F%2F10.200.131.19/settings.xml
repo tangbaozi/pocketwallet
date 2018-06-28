@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:interface xsi:type="con:RestService" id="e6869b68-3659-4f1b-8ed8-c2661922e730" wadlVersion="http://wadl.dev.java.net/2009/02" name="https://10.200.131.19" type="rest" basePath="" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="e6869b68-3659-4f1b-8ed8-c2661922e730fileName">https%3A%2F%2F10.200.131.19</con:setting>
+  </con:settings>
+  <con:definitionCache type="TEXT" rootPart=""/>
+  <con:endpoints>
+    <con:endpoint>http://10.200.131.19</con:endpoint>
+  </con:endpoints>
+</con:interface>

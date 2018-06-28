@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="3b3bb8d8-3a0d-4770-9d92-88bb64208c43" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="卡券" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="3b3bb8d8-3a0d-4770-9d92-88bb64208c43fileName">卡券</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="restrequest" name="优惠�?" id="990ea698-7e73-44a9-89ac-8a750783fcaa">
+    <con:settings/>
+    <con:config service="https://10.200.141.56" resourcePath="/ActivityWeb/cardCoupons" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="优惠�?" id="b8187b15-f460-47e5-b855-bc987f6445e4" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="cookie" value="token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI0MWFhNjcwNzE0YzI0ZjJmYjMzOTEyYTg0M2FmMmQyNCIsImF1ZCI6WyJ1Y2EzZWUwZTEzZmZmYzZjN2QiLCJ1Y2VudGVyIl0sImlfdiI6MTUyODM3MzgwNjAwMCwiaWRlbnRfaWQiOjIyODM5NjMwLCJuYmYiOjE1Mjk0NTg1NDIsInBfdiI6MTUyOTA0MTkyMDAwMCwiaXNzIjoidWNlbnRlciIsImV4cCI6MTUyOTU0NDk0MiwidHlwZSI6MSwiaWF0IjoxNTI5NDU4NTQyLCJqdGkiOiIyMjI0NTc5NSJ9.qfvwOlqxpgR5SJ24BCeNgLEVXuZxWBzAtxa6h_i-yf7yqMW4jbIWoE6y9bT0pdE0qKg8C7lzpY44u9W03nE9QxlsSsYhhXexEj_5wHdJ-IeIIEFzLMkEolP2Rr74IqIvixTGGqoZ_2dEPEbQX27t0hQA4fF0hLwQNsv8aHno0PI"/>
+  &lt;con:entry key="cookie" value="ucenter_version=v2"/>
+&lt;/xml-fragment></con:setting>
+        </con:settings>
+        <con:endpoint>https://10.200.141.56</con:endpoint>
+        <con:request/>
+        <con:originalUri>https://10.200.141.56/ActivityWeb/cardCoupons</con:originalUri>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="productId" value="5212F38B6EAF453ABB543E797F39C0AA"/>
+          <con:entry key="payAction" value="CREDIT_PART_RULE"/>
+          <con:entry key="useType" value="usable"/>
+          <con:entry key="category" value="REPAYMENT_FEE"/>
+          <con:entry key="channelCode" value="QD000005"/>
+        </con:parameters>
+        <con:parameterOrder>
+          <con:entry>productId</con:entry>
+          <con:entry>useType</con:entry>
+          <con:entry>payAction</con:entry>
+          <con:entry>channelCode</con:entry>
+          <con:entry>category</con:entry>
+        </con:parameterOrder>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

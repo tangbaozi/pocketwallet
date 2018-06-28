@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="eb067efd-a288-4643-ba04-50046a41c61c" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="å……å??" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="eb067efd-a288-4643-ba04-50046a41c61cfileName">å……å??</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="restrequest" name="å……å??" id="f851b566-88e4-417f-be7e-5dd1c9659cdf">
+    <con:settings/>
+    <con:config service="https://10.200.141.56" resourcePath="/funds/third/deposit/noEncrypt/koudai" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="å……å??" id="6a6a128e-2928-4389-aeae-ba6daf08fbee" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="cookie" value="token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI0MWFhNjcwNzE0YzI0ZjJmYjMzOTEyYTg0M2FmMmQyNCIsImF1ZCI6WyJ1Y2EzZWUwZTEzZmZmYzZjN2QiLCJ1Y2VudGVyIl0sImlfdiI6MTUyODM3MzgwNjAwMCwiaWRlbnRfaWQiOjIyODM5NjMwLCJuYmYiOjE1Mjk0NTg1NDIsInBfdiI6MTUyOTA0MTkyMDAwMCwiaXNzIjoidWNlbnRlciIsImV4cCI6MTUyOTU0NDk0MiwidHlwZSI6MSwiaWF0IjoxNTI5NDU4NTQyLCJqdGkiOiIyMjI0NTc5NSJ9.qfvwOlqxpgR5SJ24BCeNgLEVXuZxWBzAtxa6h_i-yf7yqMW4jbIWoE6y9bT0pdE0qKg8C7lzpY44u9W03nE9QxlsSsYhhXexEj_5wHdJ-IeIIEFzLMkEolP2Rr74IqIvixTGGqoZ_2dEPEbQX27t0hQA4fF0hLwQNsv8aHno0PI"/>
+  &lt;con:entry key="cookie" value="ucenter_version=v2"/>
+&lt;/xml-fragment></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://10.200.141.56</con:endpoint>
+        <con:request>{
+	"depositAmount":"100",
+     "bankCardNo":"6217001210024455220",
+     "realName":"","idCardNo":"","type":1,
+     "url_return":"http://10.200.141.56/funds-callback/ll/url/return?url=fyd://main?page=mine&amp;url2=fyd://main?page=mine",
+     "depositNotifyUrl":"",
+     "reqNo":"",
+     "channel":"QD000005"
+     }</con:request>
+        <con:originalUri>https://10.200.141.56/funds/third/deposit/noEncrypt/koudai</con:originalUri>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

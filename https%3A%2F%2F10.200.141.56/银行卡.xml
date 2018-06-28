@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="银行�?" path="/funds/bankcard" id="0f6f3a03-7eaf-4c55-be4a-be30b81ef3a7" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="0f6f3a03-7eaf-4c55-be4a-be30b81ef3a7fileName">银行�?</con:setting>
+  </con:settings>
+  <con:parameters/>
+  <con:method name="Method 1" id="7361939a-8219-41a4-bc1f-9a683ff72332" method="GET">
+    <con:settings/>
+    <con:parameters/>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:element xmlns:ban="https://10.200.141.56/funds/bankcard">ban:Response</con:element>
+    </con:representation>
+    <con:request name="Request 1" id="21eceabe-0454-40a1-ade4-a2f9dbac5a2b" mediaType="application/json">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="cookie" value="token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI0MWFhNjcwNzE0YzI0ZjJmYjMzOTEyYTg0M2FmMmQyNCIsImF1ZCI6WyJ1Y2EzZWUwZTEzZmZmYzZjN2QiLCJ1Y2VudGVyIl0sImlfdiI6MTUyODM3MzgwNjAwMCwiaWRlbnRfaWQiOjIyODM5NjMwLCJuYmYiOjE1Mjk0NTg1NDIsInBfdiI6MTUyOTA0MTkyMDAwMCwiaXNzIjoidWNlbnRlciIsImV4cCI6MTUyOTU0NDk0MiwidHlwZSI6MSwiaWF0IjoxNTI5NDU4NTQyLCJqdGkiOiIyMjI0NTc5NSJ9.qfvwOlqxpgR5SJ24BCeNgLEVXuZxWBzAtxa6h_i-yf7yqMW4jbIWoE6y9bT0pdE0qKg8C7lzpY44u9W03nE9QxlsSsYhhXexEj_5wHdJ-IeIIEFzLMkEolP2Rr74IqIvixTGGqoZ_2dEPEbQX27t0hQA4fF0hLwQNsv8aHno0PI"/>
+  &lt;con:entry key="cookie" value="ucenter_version=v2"/>
+&lt;/xml-fragment></con:setting>
+      </con:settings>
+      <con:encoding>UTF-8</con:encoding>
+      <con:endpoint>https://10.200.141.56</con:endpoint>
+      <con:request/>
+      <con:originalUri>https://10.200.141.56/funds/bankcard</con:originalUri>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+</con:resource>

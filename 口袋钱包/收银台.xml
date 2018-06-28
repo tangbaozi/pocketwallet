@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="12b7ec50-b002-4435-b561-a587b669b57e" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="收银�?" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="12b7ec50-b002-4435-b561-a587b669b57efileName">收银�?</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="restrequest" name="account/user" id="bdd46dc4-b6ab-4475-acfe-185abeb20b51">
+    <con:settings/>
+    <con:config service="https://10.200.142.7" resourcePath="/account/user" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="account/user" id="3c6693f3-9d61-4f7a-8582-27586950ade8" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Cookie" value="${#TestSuite#token}" xmlns="http://eviware.com/soapui/config"/></con:setting>
+        </con:settings>
+        <con:endpoint>https://10.200.142.7</con:endpoint>
+        <con:request/>
+        <con:originalUri>https://10.200.142.7/account/user</con:originalUri>
+        <con:credentials>
+          <con:selectedAuthProfile>Server3.0</con:selectedAuthProfile>
+          <con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes>
+          <con:addedBasicAuthenticationTypes>NTLM</con:addedBasicAuthenticationTypes>
+          <con:addedBasicAuthenticationTypes>SPNEGO/Kerberos</con:addedBasicAuthenticationTypes>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="分期购登�?" id="c57a8632-df69-4481-8f7b-e3049e5e7e3d">
+    <con:settings/>
+    <con:config service="https://10.200.142.7" resourcePath="/api/v2/fundsloan//loan/login" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="分期购登�?" id="e3273ff8-4651-4646-8a4e-effe29e1e327" mediaType="application/x-www-form-urlencoded" postQueryString="true">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Cookie" value="token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI1ZTQ2MjdjNzNjNTk0NmZiOTkxYmJhYTk4M2U2ODAzMiIsImF1ZCI6WyJ1YzZjN2YwNmU1NGFjNzdmODciLCJ1Y2VudGVyIl0sImlfdiI6MTUyODQ0NTc3NDAwMCwiaWRlbnRfaWQiOjMwNDkxNTIsIm5iZiI6MTUyOTU0NTA3MywicF92IjoxNTI4NDQ2MDYzMDAwLCJpc3MiOiJ1Y2VudGVyIiwiZXhwIjoxNTI5NjMxNDg3LCJ0eXBlIjoxLCJpYXQiOjE1Mjk1NDUwNzMsImp0aSI6IjIxMjk3NiJ9.mgUlYdoHUoreiEuCfBHqCPep2Zvn7UF8TpbWH39P12wgUKv2vJPNRUjI8T1h3TTYmRnRVDfDBcAUjwRlo6rPwBRnIE77pNuqtIcNnA4OplSKRwqBIPTDJ2c6ZcSkeFENR7lxwM_xqH5XH-4aPtsuqHCWTRbHwNmAUGLMWx8fYFk" xmlns="http://eviware.com/soapui/config"/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>http://10.200.142.7</con:endpoint>
+        <con:request/>
+        <con:originalUri>https://10.200.142.7/api/v2/fundsloan/loan/login</con:originalUri>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="mobilePhone" value="13113101242"/>
+          <con:entry key="tag" value="kdtrc"/>
+        </con:parameters>
+        <con:parameterOrder>
+          <con:entry>tag</con:entry>
+          <con:entry>mobilePhone</con:entry>
+        </con:parameterOrder>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="getLoantoken" id="0efc0e3a-0c27-4231-83ec-47fcf9e864df">
+    <con:settings/>
+    <con:config>
+      <script>def token=testRunner.testCase.getTestStepByName("分期购登�?").testRequest.response.responseHeaders["Set-Cookie"]
+def loan_token=token.get(0).split(";")[0]
+testRunner.testCase.setPropertyValue("loan_token",loan_token)</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="interest" id="c0f40726-e931-4148-a87f-4715a88fc156">
+    <con:settings/>
+    <con:config service="https://10.200.142.7" resourcePath="/api/v2/fundsloan//loan/info/interest" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="interest" id="34cf21c1-8565-4f78-8eff-97df2fbe67b0" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="cookie" value="mgUlYdoHUoreiEuCfBHqCPep2Zvn7UF8TpbWH39P12wgUKv2vJPNRUjI8T1h3TTYmRnRVDfDBcAUjwRlo6rPwBRnIE77pNuqtIcNnA4OplSKRwqBIPTDJ2c6ZcSkeFENR7lxwM_xqH5XH"/>
+  &lt;con:entry key="cookie" value="ucenter_version=v2"/>
+  &lt;con:entry key="cookie" value="${#TestCase#loan_token}"/>
+&lt;/xml-fragment></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>http://10.200.142.7</con:endpoint>
+        <con:request/>
+        <con:originalUri>https://10.200.142.7/api/v2/fundsloan/loan/info/interest</con:originalUri>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="gateway" id="03286307-bda2-44ec-a8a5-2d416a38c202">
+    <con:settings/>
+    <con:config service="https://10.200.142.7" resourcePath="/api/v3/funds//pay/trade/gateway" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="gateway" id="8bd09e37-3db9-4831-8c41-769b7ba29340" mediaType="application/x-www-form-urlencoded" postQueryString="true">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="cookie" value="${#TestCase#loan_token}"/>
+  &lt;con:entry key="cookie" value="token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI1ZTQ2MjdjNzNjNTk0NmZiOTkxYmJhYTk4M2U2ODAzMiIsImF1ZCI6WyJ1YzZjN2YwNmU1NGFjNzdmODciLCJ1Y2VudGVyIl0sImlfdiI6MTUyODQ0NTc3NDAwMCwiaWRlbnRfaWQiOjMwNDkxNTIsIm5iZiI6MTUyOTU1MDAwOCwicF92IjoxNTI4NDQ2MDYzMDAwLCJpc3MiOiJ1Y2VudGVyIiwiZXhwIjoxNTI5NjM2NDA4LCJ0eXBlIjoxLCJpYXQiOjE1Mjk1NTAwMDgsImp0aSI6IjIxMzAyNSJ9.sp88U5bpM5pHxhxW3hy-rtm7CA5_05BNeR-3J-StnXWFT6VSr_h2hpKUDzYTLvLXE_D6BW9o9mpNlrHsv8MK-STMr9h7qEyeXYTmklDgX6pLmXgEZtkIGiHs5pQ_pJfQUtNNndzg1O2o6vj2yfjrkBl1jhqrTx0nL_HiFnFfQ1M"/>
+  &lt;con:entry key="cookie" value="ucenter_version=v2"/>
+&lt;/xml-fragment></con:setting>
+        </con:settings>
+        <con:endpoint>https://10.200.142.7</con:endpoint>
+        <con:request/>
+        <con:originalUri>https://10.200.142.7/api/v3/funds/pay/trade/gateway</con:originalUri>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="retUrl" value="http://kdaf-m.tairanmall.com/payResult?tid=1806211001284142917&amp;paymentId=P180621095808179RFHQ"/>
+          <con:entry key="channel" value="LOAN"/>
+          <con:entry key="from" value="kdtrc"/>
+          <con:entry key="payId" value="DD2018062109574157769679"/>
+          <con:entry key="terminal" value="WAP"/>
+        </con:parameters>
+        <con:parameterOrder>
+          <con:entry>payId</con:entry>
+          <con:entry>from</con:entry>
+          <con:entry>channel</con:entry>
+          <con:entry>terminal</con:entry>
+          <con:entry>retUrl</con:entry>
+        </con:parameterOrder>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="loan51" id="26b50702-0aab-4b7d-92d7-19d954d055c7">
+    <con:settings/>
+    <con:config service="https://10.200.142.7" resourcePath="/api/v2/fundsloan//user/can/loan51" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="loan51" id="ddabae33-03ca-40e6-9bdc-3fb6023809ef" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="cookie" value="token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI1ZTQ2MjdjNzNjNTk0NmZiOTkxYmJhYTk4M2U2ODAzMiIsImF1ZCI6WyJ1YzZjN2YwNmU1NGFjNzdmODciLCJ1Y2VudGVyIl0sImlfdiI6MTUyODQ0NTc3NDAwMCwiaWRlbnRfaWQiOjMwNDkxNTIsIm5iZiI6MTUyOTU1MDAwOCwicF92IjoxNTI4NDQ2MDYzMDAwLCJpc3MiOiJ1Y2VudGVyIiwiZXhwIjoxNTI5NjM2NDA4LCJ0eXBlIjoxLCJpYXQiOjE1Mjk1NTAwMDgsImp0aSI6IjIxMzAyNSJ9.sp88U5bpM5pHxhxW3hy-rtm7CA5_05BNeR-3J-StnXWFT6VSr_h2hpKUDzYTLvLXE_D6BW9o9mpNlrHsv8MK-STMr9h7qEyeXYTmklDgX6pLmXgEZtkIGiHs5pQ_pJfQUtNNndzg1O2o6vj2yfjrkBl1jhqrTx0nL_HiFnFfQ1M"/>
+  &lt;con:entry key="cookie" value="ucenter_version=v2"/>
+  &lt;con:entry key="cookie" value="${#TestCase#loan_token}"/>
+&lt;/xml-fragment></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://10.200.142.7</con:endpoint>
+        <con:request/>
+        <con:originalUri>https://10.200.142.7/api/v2/fundsloan/user/can/loan51</con:originalUri>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <entry key="billId" value="${gateway#Response#$['info']['billId']}" xmlns="http://eviware.com/soapui/config"/>
+        </con:parameters>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties>
+    <con:property>
+      <con:name>loan_token</con:name>
+      <con:value>loanToken=eyJtb2JpbGUiOiIxMzExMzEwMTI0MiIsInRhZyI6ImtkdHJjIiwidG9rZW4iOiJ0b2tlbj03MzcyRENENUNGNTg0RDhEOTQzQjc5QjVBMUZCQzExOC5FNjI0RTNBRTM5Njg5NjVEQjQ1Mzk2QkEzQzI0NkI2RiIsInVzZXJJZCI6IjVlNDYyN2M3M2M1OTQ2ZmI5OTFiYmFhOTgzZTY4MDMyIn0=</con:value>
+    </con:property>
+  </con:properties>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>03286307-bda2-44ec-a8a5-2d416a38c202</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>c57a8632-df69-4481-8f7b-e3049e5e7e3d</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+</con:testCase>

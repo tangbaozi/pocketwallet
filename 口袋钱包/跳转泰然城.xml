@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="f9617e17-e3f9-413f-b9d4-7c81afdfbcd0" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="跳转泰然�?" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="f9617e17-e3f9-413f-b9d4-7c81afdfbcd0fileName">跳转泰然�?</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="restrequest" name="Version" id="bb62e8fe-79cb-473d-980a-f8ba27763b61">
+    <con:settings/>
+    <con:config service="https://10.200.141.56" resourcePath="/SystemWeb/about/version" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="Version" id="1337076c-abb0-4253-9b15-65b0a56d7d54" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="cookie" value="token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI0MWFhNjcwNzE0YzI0ZjJmYjMzOTEyYTg0M2FmMmQyNCIsImF1ZCI6WyJ1Y2EzZWUwZTEzZmZmYzZjN2QiLCJ1Y2VudGVyIl0sImlfdiI6MTUyODM3MzgwNjAwMCwiaWRlbnRfaWQiOjIyODM5NjMwLCJuYmYiOjE1Mjk1NDQ3ODcsInBfdiI6MTUyOTA0MTkyMDAwMCwiaXNzIjoidWNlbnRlciIsImV4cCI6MTUyOTYzMTE4NywidHlwZSI6MSwiaWF0IjoxNTI5NTQ0Nzg3LCJqdGkiOiIyMjMxMTg4MSJ9.HUgsyHP_OHC8c2IfXZsQ19blS8_bY2StIV2jYOprM4abLzPSJZ3uXEpAgl1PXzGRuchRZEZJVysDjehK9TieK9WMkHncUZZWSeOrEdcD0rG6FJavI5A0He3naalZW_sam7JmKUiUZNKcFv2qpLI8HktzsjmsI1j7BzOfF-YVuqs" xmlns="http://eviware.com/soapui/config"/></con:setting>
+        </con:settings>
+        <con:endpoint>https://10.200.141.56</con:endpoint>
+        <con:request/>
+        <con:originalUri>https://10.200.141.56/SystemWeb/about/version</con:originalUri>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="认证授权" id="aaf4e4ad-c946-482f-a27f-7f23f6db04e7">
+    <con:settings/>
+    <con:config service="https://10.200.141.56" resourcePath="/UserWeb/oauth2/to_grant_redirect" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="认证授权" id="4e4998a7-68ca-48e6-ba30-8e1005871bce" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="cookie" value="${#TestSuite#token}"/>
+  &lt;con:entry key="cookie" value="${#TestSuite#version}"/>
+&lt;/xml-fragment></con:setting>
+        </con:settings>
+        <con:endpoint>https://10.200.141.56</con:endpoint>
+        <con:request/>
+        <con:originalUri>https://10.200.141.56/UserWeb/oauth2/to_grant_redirect</con:originalUri>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="redirectUri" value="https://passportm.tairanmall.com/oauth/fdisbind/?return_url=aHR0cCUzQSUyRiUyRmtkYWYtbS50YWlyYW5tYWxsLmNvbQ=="/>
+          <con:entry key="appId" value="fd_502cfd763c4d8a64e4ba"/>
+          <con:entry key="state" value="PW"/>
+        </con:parameters>
+        <con:parameterOrder>
+          <con:entry>state</con:entry>
+          <con:entry>redirectUri</con:entry>
+          <con:entry>appId</con:entry>
+        </con:parameterOrder>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>bb62e8fe-79cb-473d-980a-f8ba27763b61</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+</con:testCase>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="version" path="/SystemWeb/about/version" id="274faf48-a69d-493c-be75-df0d33b39712" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="274faf48-a69d-493c-be75-df0d33b39712fileName">version</con:setting>
+  </con:settings>
+  <con:parameters>
+    <con:parameter required="true">
+      <con:name>deviceType</con:name>
+      <con:value>android</con:value>
+      <con:style>QUERY</con:style>
+      <con:default>android</con:default>
+    </con:parameter>
+    <con:parameter required="true">
+      <con:name>versionCode</con:name>
+      <con:value>151</con:value>
+      <con:style>QUERY</con:style>
+      <con:default>151</con:default>
+    </con:parameter>
+  </con:parameters>
+  <con:method name="Method 1" id="5ff5bbc0-e9da-40ef-b7c6-5fd24b900076" method="GET">
+    <con:settings/>
+    <con:parameters/>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:element xmlns:ver="https://10.200.141.56/SystemWeb/about/version">ver:Response</con:element>
+    </con:representation>
+    <con:request name="Request 1" id="1337076c-abb0-4253-9b15-65b0a56d7d54" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>https://10.200.141.56</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+</con:resource>

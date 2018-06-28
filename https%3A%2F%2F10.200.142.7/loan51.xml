@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="loan51" path="/api/v2/fundsloan//user/can/loan51" id="51f10ce8-f828-4c29-b942-023f262c6926" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="51f10ce8-f828-4c29-b942-023f262c6926fileName">loan51</con:setting>
+  </con:settings>
+  <con:parameters>
+    <con:parameter required="true">
+      <con:name>billId</con:name>
+      <con:value>14BF26BA805A4CAFB4F1CDCCC035B77C</con:value>
+      <con:style>QUERY</con:style>
+      <con:default>14BF26BA805A4CAFB4F1CDCCC035B77C</con:default>
+    </con:parameter>
+  </con:parameters>
+  <con:method name="Method 1" id="ddb9fb64-7d5b-47b3-a257-1d2b22192e6b" method="GET">
+    <con:settings/>
+    <con:parameters/>
+    <con:representation type="FAULT">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>401 400</con:status>
+      <con:params/>
+      <con:element xmlns:loan="https://10.200.142.7/api/v2/fundsloan/user/can/loan51">loan:Fault</con:element>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:element xmlns:loan="https://10.200.142.7/api/v2/fundsloan/user/can/loan51">loan:Response</con:element>
+    </con:representation>
+    <con:request name="Request 1" id="ddabae33-03ca-40e6-9bdc-3fb6023809ef" mediaType="application/json">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="cookie" value="token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI1ZTQ2MjdjNzNjNTk0NmZiOTkxYmJhYTk4M2U2ODAzMiIsImF1ZCI6WyJ1YzZjN2YwNmU1NGFjNzdmODciLCJ1Y2VudGVyIl0sImlfdiI6MTUyODQ0NTc3NDAwMCwiaWRlbnRfaWQiOjMwNDkxNTIsIm5iZiI6MTUyOTU1MDAwOCwicF92IjoxNTI4NDQ2MDYzMDAwLCJpc3MiOiJ1Y2VudGVyIiwiZXhwIjoxNTI5NjM2NDA4LCJ0eXBlIjoxLCJpYXQiOjE1Mjk1NTAwMDgsImp0aSI6IjIxMzAyNSJ9.sp88U5bpM5pHxhxW3hy-rtm7CA5_05BNeR-3J-StnXWFT6VSr_h2hpKUDzYTLvLXE_D6BW9o9mpNlrHsv8MK-STMr9h7qEyeXYTmklDgX6pLmXgEZtkIGiHs5pQ_pJfQUtNNndzg1O2o6vj2yfjrkBl1jhqrTx0nL_HiFnFfQ1M"/>
+  &lt;con:entry key="cookie" value="ucenter_version=v2"/>
+  &lt;con:entry key="cookie" value="loanToken=eyJtb2JpbGUiOiIxMzExMzEwMTI0MiIsInRhZyI6ImtkdHJjIiwidG9rZW4iOiJ0b2tlbj04MUE2RkFCNTk4QjA0NjM3QjkyMURDODg3NjI4ODdGNi4wNDJGQTRDNTk2REVBQTczMUM2Mzk5MzBGNkJFQzc5MCIsInVzZXJJZCI6IjVlNDYyN2M3M2M1OTQ2ZmI5OTFiYmFhOTgzZTY4MDMyIn0="/>
+&lt;/xml-fragment></con:setting>
+      </con:settings>
+      <con:encoding>UTF-8</con:encoding>
+      <con:endpoint>https://10.200.142.7</con:endpoint>
+      <con:request/>
+      <con:originalUri>https://10.200.142.7/api/v2/fundsloan/user/can/loan51</con:originalUri>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+</con:resource>

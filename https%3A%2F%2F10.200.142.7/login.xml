@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="login" path="/api/v2/fundsloan//loan/login" id="8ebf0ccb-dd61-49bb-a47e-6e96efeac285" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="8ebf0ccb-dd61-49bb-a47e-6e96efeac285fileName">login</con:setting>
+  </con:settings>
+  <con:parameters>
+    <con:parameter required="true">
+      <con:name>mobilePhone</con:name>
+      <con:value/>
+      <con:style>QUERY</con:style>
+      <con:default/>
+      <con:description xsi:nil="true"/>
+    </con:parameter>
+    <con:parameter required="true">
+      <con:name>tag</con:name>
+      <con:value/>
+      <con:style>QUERY</con:style>
+      <con:default/>
+      <con:description xsi:nil="true"/>
+    </con:parameter>
+  </con:parameters>
+  <con:method name="Method 1" id="b755391c-99ef-449d-8485-cbc1d9cfb4d7" method="POST">
+    <con:settings/>
+    <con:parameters/>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+    </con:representation>
+    <con:representation type="FAULT">
+      <con:mediaType>text/html;charset=utf-8</con:mediaType>
+      <con:status>500</con:status>
+      <con:params/>
+      <con:element>html</con:element>
+    </con:representation>
+    <con:representation type="FAULT">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>400</con:status>
+      <con:params/>
+      <con:element xmlns:log="https://10.200.142.7/api/v2/fundsloan/loan/login">log:Fault</con:element>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/x-www-form-urlencoded</con:mediaType>
+      <con:params/>
+    </con:representation>
+    <con:representation type="FAULT">
+      <con:mediaType>text/plain</con:mediaType>
+      <con:status>400</con:status>
+      <con:params/>
+      <con:element>data</con:element>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:element xmlns:log="https://10.200.142.7/api/v2/fundsloan/loan/login">log:Response</con:element>
+    </con:representation>
+    <con:request name="Request 1" id="e3273ff8-4651-4646-8a4e-effe29e1e327" mediaType="application/x-www-form-urlencoded" postQueryString="true">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="Cookie" value="token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI1ZTQ2MjdjNzNjNTk0NmZiOTkxYmJhYTk4M2U2ODAzMiIsImF1ZCI6WyJ1YzZjN2YwNmU1NGFjNzdmODciLCJ1Y2VudGVyIl0sImlfdiI6MTUyODQ0NTc3NDAwMCwiaWRlbnRfaWQiOjMwNDkxNTIsIm5iZiI6MTUyOTU0NTA3MywicF92IjoxNTI4NDQ2MDYzMDAwLCJpc3MiOiJ1Y2VudGVyIiwiZXhwIjoxNTI5NjMxNDg3LCJ0eXBlIjoxLCJpYXQiOjE1Mjk1NDUwNzMsImp0aSI6IjIxMjk3NiJ9.mgUlYdoHUoreiEuCfBHqCPep2Zvn7UF8TpbWH39P12wgUKv2vJPNRUjI8T1h3TTYmRnRVDfDBcAUjwRlo6rPwBRnIE77pNuqtIcNnA4OplSKRwqBIPTDJ2c6ZcSkeFENR7lxwM_xqH5XH-4aPtsuqHCWTRbHwNmAUGLMWx8fYFk" xmlns="http://eviware.com/soapui/config"/></con:setting>
+      </con:settings>
+      <con:endpoint>https://10.200.142.7</con:endpoint>
+      <con:request/>
+      <con:originalUri>https://10.200.142.7/api/v2/fundsloan/loan/login</con:originalUri>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:entry key="mobilePhone" value="13113101242 "/>
+        <con:entry key="tag" value="kdtrc"/>
+      </con:parameters>
+      <con:parameterOrder>
+        <con:entry>tag</con:entry>
+        <con:entry>mobilePhone</con:entry>
+      </con:parameterOrder>
+    </con:request>
+  </con:method>
+</con:resource>

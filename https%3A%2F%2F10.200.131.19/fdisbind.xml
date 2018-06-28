@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="fdisbind" path="/oauth/fdisbind/" id="f3cc818a-0f96-4361-bb09-c3cf18299920" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="f3cc818a-0f96-4361-bb09-c3cf18299920fileName">fdisbind</con:setting>
+  </con:settings>
+  <con:parameters>
+    <con:parameter required="true">
+      <con:name>return_url</con:name>
+      <con:value>anNicmlkZ2UlM0ElMkYlMkZvcGVuX2xpbmtfYXRfc3RhY2tfcm9vdCUzRnVybCUzRGFIUjBjRG92TDJ0a1lXWXRiUzUwWVdseVlXNXRZV3hzTG1OdmJRJTNEJTNE</con:value>
+      <con:style>QUERY</con:style>
+      <con:default>anNicmlkZ2UlM0ElMkYlMkZvcGVuX2xpbmtfYXRfc3RhY2tfcm9vdCUzRnVybCUzRGFIUjBjRG92TDJ0a1lXWXRiUzUwWVdseVlXNXRZV3hzTG1OdmJRJTNEJTNE</con:default>
+    </con:parameter>
+    <con:parameter required="true">
+      <con:name>code</con:name>
+      <con:value>46DB78E974B648B88A097069ED04680E</con:value>
+      <con:style>QUERY</con:style>
+      <con:default>46DB78E974B648B88A097069ED04680E</con:default>
+    </con:parameter>
+    <con:parameter required="true">
+      <con:name>state</con:name>
+      <con:value>PW</con:value>
+      <con:style>QUERY</con:style>
+      <con:default>PW</con:default>
+    </con:parameter>
+  </con:parameters>
+  <con:method name="Method 1" id="ed199549-22f8-4c2d-8646-e152f6bbae1e" method="GET">
+    <con:settings/>
+    <con:parameters/>
+    <con:representation type="FAULT">
+      <con:mediaType>text/html; charset=utf-8</con:mediaType>
+      <con:status>404</con:status>
+      <con:params/>
+      <con:element>html</con:element>
+    </con:representation>
+    <con:request name="Request 1" id="cbcff159-68be-406c-bcce-743ecdefab7e" mediaType="application/json">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="cookie" value="" xmlns="http://eviware.com/soapui/config"/></con:setting>
+      </con:settings>
+      <con:endpoint>https://10.200.131.19</con:endpoint>
+      <con:request/>
+      <con:originalUri>http://10.200.131.19/oauth/fdisbind/</con:originalUri>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+</con:resource>

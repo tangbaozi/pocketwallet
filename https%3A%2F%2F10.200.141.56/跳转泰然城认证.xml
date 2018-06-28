@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="跳转泰然城认�?" path="/UserWeb/oauth2/to_grant_redirect" id="eb8c83ac-0ffe-46ef-a6e3-75eb40c7e9f1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="eb8c83ac-0ffe-46ef-a6e3-75eb40c7e9f1fileName">跳转泰然城认�?</con:setting>
+  </con:settings>
+  <con:parameters>
+    <con:parameter required="true">
+      <con:name>state</con:name>
+      <con:value/>
+      <con:style>QUERY</con:style>
+      <con:default/>
+      <con:description xsi:nil="true"/>
+    </con:parameter>
+    <con:parameter required="true">
+      <con:name>appId</con:name>
+      <con:value/>
+      <con:style>QUERY</con:style>
+      <con:default/>
+      <con:description xsi:nil="true"/>
+    </con:parameter>
+    <con:parameter required="true">
+      <con:name>redirectUri</con:name>
+      <con:value/>
+      <con:style>QUERY</con:style>
+      <con:default/>
+      <con:description xsi:nil="true"/>
+    </con:parameter>
+  </con:parameters>
+  <con:method name="Method 1" id="cb13aea0-e28f-4729-a7b6-22a51fb73f08" method="GET">
+    <con:settings/>
+    <con:parameters/>
+    <con:representation type="FAULT">
+      <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+      <con:status>400</con:status>
+      <con:params/>
+      <con:element xmlns:to="https://10.200.141.56/UserWeb/oauth2/to_grant_redirect">to:Fault</con:element>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>text/html</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:element>html</con:element>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>text/html; charset=utf-8</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:element>html</con:element>
+    </con:representation>
+    <con:request name="Request 1" id="4e4998a7-68ca-48e6-ba30-8e1005871bce" mediaType="application/json">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://10.200.141.56</con:endpoint>
+      <con:request/>
+      <con:originalUri>https://10.200.141.56/UserWeb/oauth2/to_grant_redirect</con:originalUri>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:entry key="redirectUri" value="https://passportm.tairanmall.com/oauth/fdisbind/?return_url=aHR0cCUzQSUyRiUyRmtkYWYtbS50YWlyYW5tYWxsLmNvbQ=="/>
+        <con:entry key="appId" value="fd_502cfd763c4d8a64e4ba"/>
+        <con:entry key="state" value="PW"/>
+      </con:parameters>
+      <con:parameterOrder>
+        <con:entry>state</con:entry>
+        <con:entry>redirectUri</con:entry>
+        <con:entry>appId</con:entry>
+      </con:parameterOrder>
+    </con:request>
+  </con:method>
+</con:resource>

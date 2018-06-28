@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="fengdai" path="/account/login/fengdai" id="47b29a45-b464-4aca-a4c4-49888af97f0d" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="47b29a45-b464-4aca-a4c4-49888af97f0dfileName">fengdai</con:setting>
+  </con:settings>
+  <con:parameters>
+    <con:parameter required="true">
+      <con:name>code</con:name>
+      <con:value>46DB78E974B648B88A097069ED04680E</con:value>
+      <con:style>QUERY</con:style>
+      <con:default>46DB78E974B648B88A097069ED04680E</con:default>
+    </con:parameter>
+    <con:parameter required="true">
+      <con:name>state</con:name>
+      <con:value>uc6c7f06e54ac77f87</con:value>
+      <con:style>QUERY</con:style>
+      <con:default>uc6c7f06e54ac77f87</con:default>
+    </con:parameter>
+  </con:parameters>
+  <con:method name="Method 1" id="5bfa27ef-b0c0-46bb-8cd4-8593b047763a" method="GET">
+    <con:settings/>
+    <con:parameters/>
+    <con:representation type="FAULT">
+      <con:mediaType>text/html; charset=utf-8</con:mediaType>
+      <con:status>404</con:status>
+      <con:params/>
+      <con:element>html</con:element>
+    </con:representation>
+    <con:request name="Request 1" id="079722d3-eff6-46e9-839f-816c2a2c3be7" mediaType="application/json">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://10.200.131.19</con:endpoint>
+      <con:request/>
+      <con:originalUri>http://10.200.131.19/account/login/fengdai</con:originalUri>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+</con:resource>

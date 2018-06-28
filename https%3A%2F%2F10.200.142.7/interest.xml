@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="interest" path="/api/v2/fundsloan//loan/info/interest" id="84f72458-3831-4aba-9b54-1202b40fce65" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="84f72458-3831-4aba-9b54-1202b40fce65fileName">interest</con:setting>
+  </con:settings>
+  <con:parameters>
+    <con:parameter required="true">
+      <con:name>money</con:name>
+      <con:value>34</con:value>
+      <con:style>QUERY</con:style>
+      <con:default>34</con:default>
+    </con:parameter>
+    <con:parameter required="true">
+      <con:name>tag</con:name>
+      <con:value>kdtrc</con:value>
+      <con:style>QUERY</con:style>
+      <con:default>kdtrc</con:default>
+    </con:parameter>
+  </con:parameters>
+  <con:method name="Method 1" id="503eb295-96e7-4fc9-8075-e644aa13190c" method="GET">
+    <con:settings/>
+    <con:parameters/>
+    <con:representation type="FAULT">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>401 400</con:status>
+      <con:params/>
+      <con:element xmlns:int="https://10.200.142.7/api/v2/fundsloan/loan/info/interest">int:Fault</con:element>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:element>Response</con:element>
+    </con:representation>
+    <con:request name="Request 1" id="34cf21c1-8565-4f78-8eff-97df2fbe67b0" mediaType="application/json">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="cookie" value="mgUlYdoHUoreiEuCfBHqCPep2Zvn7UF8TpbWH39P12wgUKv2vJPNRUjI8T1h3TTYmRnRVDfDBcAUjwRlo6rPwBRnIE77pNuqtIcNnA4OplSKRwqBIPTDJ2c6ZcSkeFENR7lxwM_xqH5XH" xmlns="http://eviware.com/soapui/config"/></con:setting>
+      </con:settings>
+      <con:encoding>UTF-8</con:encoding>
+      <con:endpoint>http://10.200.142.7</con:endpoint>
+      <con:request/>
+      <con:originalUri>https://10.200.142.7/api/v2/fundsloan/loan/info/interest</con:originalUri>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+</con:resource>

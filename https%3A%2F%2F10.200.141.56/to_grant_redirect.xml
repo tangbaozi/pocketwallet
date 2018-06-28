@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="to_grant_redirect" path="/UserWeb/oauth2/to_grant_redirect" id="bdb9ade3-f6ae-4a3b-b864-f69c8279e954" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="bdb9ade3-f6ae-4a3b-b864-f69c8279e954fileName">to_grant_redirect</con:setting>
+  </con:settings>
+  <con:parameters>
+    <con:parameter required="true">
+      <con:name>state</con:name>
+      <con:value>PW</con:value>
+      <con:style>QUERY</con:style>
+      <con:default>PW</con:default>
+    </con:parameter>
+    <con:parameter required="true">
+      <con:name>appId</con:name>
+      <con:value>fd_502cfd763c4d8a64e4ba</con:value>
+      <con:style>QUERY</con:style>
+      <con:default>fd_502cfd763c4d8a64e4ba</con:default>
+    </con:parameter>
+    <con:parameter required="true">
+      <con:name>redirectUri</con:name>
+      <con:value>https://passportm.tairanmall.com/oauth/fdisbind/?return_url=anNicmlkZ2UlM0ElMkYlMkZvcGVuX2xpbmtfYXRfc3RhY2tfcm9vdCUzRnVybCUzRGFIUjBjRG92TDJ0a1lXWXRiUzUwWVdseVlXNXRZV3hzTG1OdmJRJTNEJTNE</con:value>
+      <con:style>QUERY</con:style>
+      <con:default>https://passportm.tairanmall.com/oauth/fdisbind/?return_url=anNicmlkZ2UlM0ElMkYlMkZvcGVuX2xpbmtfYXRfc3RhY2tfcm9vdCUzRnVybCUzRGFIUjBjRG92TDJ0a1lXWXRiUzUwWVdseVlXNXRZV3hzTG1OdmJRJTNEJTNE</con:default>
+    </con:parameter>
+  </con:parameters>
+  <con:method name="Method 1" id="4a7dd01a-3fcf-4afc-9d8f-b03f5fa04266" method="GET">
+    <con:settings/>
+    <con:parameters/>
+    <con:request name="Request 1" id="2fd5ac9d-7760-466e-8bb5-a0ec70d8c3c3" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>https://10.200.141.56</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+</con:resource>

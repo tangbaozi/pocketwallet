@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="user" path="/account/user" id="c080163f-ba3c-43cc-b55d-e90d13a11f41" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="c080163f-ba3c-43cc-b55d-e90d13a11f41fileName">user</con:setting>
+  </con:settings>
+  <con:parameters>
+    <con:parameter required="true">
+      <con:name>needPhone</con:name>
+      <con:value>true</con:value>
+      <con:style>QUERY</con:style>
+      <con:default>true</con:default>
+    </con:parameter>
+  </con:parameters>
+  <con:method name="Method 1" id="3af3f7a0-1b6e-431f-860b-c86441882873" method="GET">
+    <con:settings/>
+    <con:parameters/>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:element xmlns:user="https://10.200.142.7/account/user">user:Response</con:element>
+    </con:representation>
+    <con:request name="Request 1" id="3c6693f3-9d61-4f7a-8582-27586950ade8" mediaType="application/json">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://10.200.142.7</con:endpoint>
+      <con:request/>
+      <con:originalUri>https://10.200.142.7/account/user</con:originalUri>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+</con:resource>

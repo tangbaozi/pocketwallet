@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="b8c4e168-f5a6-4ec2-b7e1-815247b007a5" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="账单" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="b8c4e168-f5a6-4ec2-b7e1-815247b007a5fileName">账单</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="restrequest" name="逾期账单" id="db4f69f1-35c7-4d4a-9777-0fce7681a6df">
+    <con:settings/>
+    <con:config service="https://10.200.141.56" resourcePath="/FinanceWeb/credit_card/hasOverDebt" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="逾期账单" id="4881571d-b8a2-40f8-a696-9ed222e0cd7a" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="cookie" value="${#TestSuite#version}"/>
+  &lt;con:entry key="cookie" value="${#TestSuite#token}"/>
+&lt;/xml-fragment></con:setting>
+        </con:settings>
+        <con:endpoint>https://10.200.141.56</con:endpoint>
+        <con:request/>
+        <con:originalUri>https://10.200.141.56/FinanceWeb/credit_card/hasOverDebt</con:originalUri>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="已出账单" id="7c9d3767-cbdb-47e8-bfa2-cf749857e0d4">
+    <con:settings/>
+    <con:config service="https://10.200.141.56" resourcePath="/FinanceWeb/credit_card/pocket_bill" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="已出账单" id="bbecba41-1c5f-44c8-86d8-88999c695eed" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="cookie" value="${#TestSuite#token}"/>
+  &lt;con:entry key="cookie" value="${#TestSuite#version}"/>
+&lt;/xml-fragment></con:setting>
+        </con:settings>
+        <con:endpoint>https://10.200.141.56</con:endpoint>
+        <con:request/>
+        <con:originalUri>https://10.200.141.56/FinanceWeb/credit_card/pocket_bill</con:originalUri>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="isIssue" value="true"/>
+          <con:entry key="time" value="1529460178524"/>
+          <con:entry key="repayStatus" value="TODO"/>
+        </con:parameters>
+        <con:parameterOrder>
+          <con:entry>isIssue</con:entry>
+          <con:entry>time</con:entry>
+          <con:entry>repayStatus</con:entry>
+        </con:parameterOrder>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="未出账单" id="f2a491ff-1508-4059-999a-f10153ea9bc3">
+    <con:settings/>
+    <con:config service="https://10.200.141.56" resourcePath="/FinanceWeb/credit_card/pocket_bill" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="未出账单" id="bbecba41-1c5f-44c8-86d8-88999c695eed" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="cookie" value="${#TestSuite#token}"/>
+  &lt;con:entry key="cookie" value="${#TestSuite#version}"/>
+&lt;/xml-fragment></con:setting>
+        </con:settings>
+        <con:endpoint>https://10.200.141.56</con:endpoint>
+        <con:request/>
+        <con:originalUri>https://10.200.141.56/FinanceWeb/credit_card/pocket_bill</con:originalUri>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="isIssue" value="false"/>
+          <con:entry key="time" value="1529460178524"/>
+          <con:entry key="repayStatus" value=""/>
+        </con:parameters>
+        <con:parameterOrder>
+          <con:entry>isIssue</con:entry>
+          <con:entry>time</con:entry>
+          <con:entry>repayStatus</con:entry>
+        </con:parameterOrder>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="账单详情" id="576c911c-03cd-465a-bd65-83c85af33772">
+    <con:settings/>
+    <con:config service="https://10.200.141.56" resourcePath="/FinanceWeb/credit_card/bill_detail" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="账单详情" id="fc7e0ce4-f4f7-426a-9d7f-2dab1d55691c" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="cookie" value="${#TestSuite#token}"/>
+  &lt;con:entry key="cookie" value="${#TestSuite#version}"/>
+&lt;/xml-fragment></con:setting>
+        </con:settings>
+        <con:endpoint>https://10.200.141.56</con:endpoint>
+        <con:request/>
+        <con:originalUri>https://10.200.141.56/FinanceWeb/credit_card/bill_detail</con:originalUri>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <entry key="cycleId" value="a616526a18c84754821b77162629378e" xmlns="http://eviware.com/soapui/config"/>
+        </con:parameters>
+        <con:parameterOrder>
+          <con:entry>cycleId</con:entry>
+        </con:parameterOrder>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="单个账单详情" id="609d3831-bef2-4c2f-83d0-56796a364d1b">
+    <con:settings/>
+    <con:config service="https://10.200.141.56" resourcePath="/FinanceWeb/credit_card/single_bill_detail" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="单个账单详情" id="560a19ff-89a7-48a1-b254-63bc1e537c07" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="cookie" value="${#TestSuiteversion}"/>
+  &lt;con:entry key="cookie" value="${#TestSuite#token}"/>
+&lt;/xml-fragment></con:setting>
+        </con:settings>
+        <con:endpoint>https://10.200.141.56</con:endpoint>
+        <con:request/>
+        <con:originalUri>https://10.200.141.56/FinanceWeb/credit_card/single_bill_detail</con:originalUri>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <entry key="detailId" value="dcd56ecf4d0943faad90e21b392ced3e" xmlns="http://eviware.com/soapui/config"/>
+        </con:parameters>
+        <con:parameterOrder>
+          <con:entry>detailId</con:entry>
+        </con:parameterOrder>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="历史账单" id="3919b431-9f06-440b-9ed6-f4a853580d9e">
+    <con:settings/>
+    <con:config service="https://10.200.141.56" resourcePath="/FinanceWeb/credit_card/pocket_bill_history" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="历史账单" id="629c2b45-323d-4eb2-b3b5-adb3c6cbb2e5" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="cookie" value="${#TestSuite#token}"/>
+  &lt;con:entry key="cookie" value="${#TestSuite#version}"/>
+&lt;/xml-fragment></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://10.200.141.56</con:endpoint>
+        <con:request/>
+        <con:originalUri>https://10.200.141.56/FinanceWeb/credit_card/pocket_bill_history</con:originalUri>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>576c911c-03cd-465a-bd65-83c85af33772</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+</con:testCase>

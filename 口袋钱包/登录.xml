@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="1c8332b2-589c-48f7-960a-30c573a3c6d1" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="登录" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="1c8332b2-589c-48f7-960a-30c573a3c6d1fileName">登录</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="restrequest" name="login" id="e288e238-ada5-46ea-ac0c-c33e667a7e65">
+    <con:settings/>
+    <con:config service="https://10.200.141.56" resourcePath="/account/user/login" methodName="login" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="login" id="e6b18803-106e-4df4-83d9-019866874d5f" mediaType="application/x-www-form-urlencoded" postQueryString="true">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="cookie" value="ucenter_version=v2" xmlns="http://eviware.com/soapui/config"/></con:setting>
+        </con:settings>
+        <con:endpoint>https://10.200.141.56</con:endpoint>
+        <con:request/>
+        <con:originalUri>https://10.200.141.56/account/user/login</con:originalUri>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="password" value="123456a"/>
+          <con:entry key="phone" value="13113101242"/>
+        </con:parameters>
+        <con:parameterOrder>
+          <con:entry>phone</con:entry>
+          <con:entry>password</con:entry>
+        </con:parameterOrder>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="gettoken" id="71ff00b7-a8c5-4158-b9ab-f9bdee70af62">
+    <con:settings/>
+    <con:config>
+      <script>//def  token = context.expand( '${login#Response#$[\'token\']}' ) 
+def cookieList=testRunner.testCase.getTestStepByName("login").testRequest.response.responseHeaders["Set-Cookie"]
+def token=cookieList.get(0).split(";")[0] 
+//def  ucenter_version=cookieList.get[1].split(";")[0] 
+def ucenter_version=cookieList.get(1).split(";")[0]  
+testRunner.testCase.testSuite.setPropertyValue("token",token) 
+testRunner.testCase.testSuite.setPropertyValue("version",ucenter_version)</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="login_user" id="520e0863-76b5-4152-806a-f6a4bcc07172">
+    <con:settings/>
+    <con:config service="https://10.200.141.56" resourcePath="/UserWeb/sys_user/login_user" methodName="login_user" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="login_user" id="dd791a8b-c77d-43fb-a3a6-97984947b61d" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="cookie" value="${#TestSuite#token}"/>
+  &lt;con:entry key="cookie" value="${#TestSuite#version}"/>
+&lt;/xml-fragment></con:setting>
+        </con:settings>
+        <con:endpoint>https://10.200.141.56</con:endpoint>
+        <con:request/>
+        <con:originalUri>https://10.200.141.56/UserWeb/sys_user/login_user</con:originalUri>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>e288e238-ada5-46ea-ac0c-c33e667a7e65</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>520e0863-76b5-4152-806a-f6a4bcc07172</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+</con:testCase>
